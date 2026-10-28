@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090a10">
+<meta name="description" content="AI VIDEO LAB — テキストからAI動画を生成するクリエイティブスタジオ">
+<title>AI VIDEO LAB — 動画生成スタジオ</title>
+<style>
+:root{color-scheme:dark;--bg:#090a10;--panel:#11131d;--panel2:#171a27;--border:#272b3d;--muted:#979bb3;--text:#f4f5ff;--purple:#a18aff;--cyan:#6ee7f2;--good:#6ee7b7;--bad:#ff8295;--radius:20px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 14% -15%,#25204a 0,transparent 42%),radial-gradient(ellipse at 95% 20%,#102733 0,transparent 27%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}a{color:inherit}.shell{max-width:1220px;margin:auto;padding:0 22px 50px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px;min-width:0}.brandmark{height:42px;width:42px;display:grid;place-items:center;border:1px solid #9d8bff66;border-radius:14px;background:linear-gradient(135deg,#9a81ff2d,#58dce32a);font-size:22px;box-shadow:0 0 30px #8b70ff12}.brandname{font-size:15px;font-weight:900;letter-spacing:.13em}.brandname span{color:var(--purple)}.brand-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.03em}.top-actions{display:flex;align-items:center;gap:9px}.status{display:flex;align-items:center;gap:7px;border:1px solid var(--border);background:#11131ccc;padding:9px 12px;border-radius:999px;font-size:12px;color:var(--muted);white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:#7a7f92;box-shadow:0 0 0 3px #7a7f921a}.status.ok .dot{background:var(--good);box-shadow:0 0 0 3px #6ee7b71a}.status.err .dot{background:var(--bad);box-shadow:0 0 0 3px #ff82951a}.icon-btn{border:1px solid var(--border);color:var(--text);background:var(--panel);height:40px;width:42px;border-radius:13px;font-size:18px}.hero{padding:37px 0 25px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.19em;color:var(--cyan);display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";display:inline-block;width:23px;height:1px;background:var(--cyan)}h1{font-size:clamp(30px,5vw,52px);line-height:1.12;margin:14px 0 12px;letter-spacing:-.04em}h1 em{font-style:normal;background:linear-gradient(90deg,#b5a1ff,#70e5f0);color:transparent;background-clip:text}.hero p{max-width:620px;color:var(--muted);font-size:14px;line-height:1.85;margin:0}.hero-chip{border:1px solid #a18aff44;background:#a18aff0e;border-radius:15px;padding:14px 16px;min-width:160px}.hero-chip small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em}.hero-chip strong{display:block;font-size:14px;margin-top:6px}.layout{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:18px;align-items:start}.panel{background:linear-gradient(160deg,#151724f2,#0f1119f5);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 22px 70px #00000016}.panel-head{padding:20px 22px 16px;border-bottom:1px solid #ffffff0c;display:flex;align-items:center;justify-content:space-between;gap:10px}.head-title{display:flex;align-items:center;gap:10px;font-weight:850;font-size:15px}.num{display:grid;place-items:center;height:27px;width:27px;border-radius:9px;background:#a18aff1a;color:#c2b4ff;font-size:12px;font-weight:900}.mini{font-size:11px;color:var(--muted)}.panel-body{padding:22px}.field{margin-bottom:21px}.field:last-child{margin-bottom:0}.labelrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.label{font-size:12px;font-weight:800;color:#e5e5f2;letter-spacing:.02em}.hint{font-size:10px;color:var(--muted)}textarea,input[type=text],input[type=password],input[type=url],select{width:100%;border:1px solid #303449;background:#0a0c14;color:var(--text);border-radius:13px;outline:none;transition:border .15s,box-shadow .15s}textarea{min-height:146px;resize:vertical;padding:15px;line-height:1.7;font-size:13px}input[type=text],input[type=password],input[type=url],select{padding:12px 13px;font-size:13px}textarea:focus,input:focus,select:focus{border-color:#9e8aff;box-shadow:0 0 0 3px #9e8aff18}textarea::placeholder,input::placeholder{color:#626781}.char-count{text-align:right;font-size:10px;color:var(--muted);margin-top:6px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:9px 12px;border-radius:999px;border:1px solid #2c3042;background:#0d0f18;color:#b5b8cc;font-size:12px}.chip.active{border-color:#a18aff8c;background:#a18aff1d;color:#eee8ff;box-shadow:inset 0 0 0 1px #a18aff13}.fields2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.subfield label{display:block;font-size:11px;color:var(--muted);margin-bottom:8px}.optiongrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.option{display:flex;align-items:center;gap:9px;border:1px solid #2b2f42;background:#0e1019;border-radius:12px;padding:11px 12px;font-size:12px;color:#d6d8e6;min-height:44px}.option:has(input:checked){border-color:#9984ff88;background:#a18aff12}.option input{accent-color:#a18aff}.primary{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;background:linear-gradient(105deg,#9576ff,#6d8aff 55%,#5bcbd8);color:#090b12;font-weight:900;font-size:14px;padding:15px;margin-top:19px;box-shadow:0 10px 28px #7966ff25;transition:transform .15s,filter .15s}.primary:not(:disabled):active{transform:scale(.99)}.primary:not(:disabled):hover{filter:brightness(1.08)}.secondary{border:1px solid #303449;background:#11131e;color:#d9dbeb;border-radius:10px;padding:9px 12px;font-size:11px}.split-actions{display:flex;gap:8px;margin-top:10px}.split-actions button{flex:1}.smallprint{font-size:10px;line-height:1.7;color:#777c96;margin-top:12px}.result-area{padding:22px}.preview{position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#17172a,#090b11 72%);border:1px solid #292d41;border-radius:16px;overflow:hidden;min-height:310px;aspect-ratio:9/14}.preview video{width:100%;height:100%;max-height:620px;position:absolute;inset:0;object-fit:contain;background:#000}.empty-state{text-align:center;padding:30px 20px;max-width:300px}.preview-icon{margin:0 auto 16px;width:64px;height:64px;border-radius:21px;background:linear-gradient(145deg,#a18aff22,#62dce11a);border:1px solid #b4a3ff2d;display:grid;place-items:center;font-size:27px}.empty-state h3{font-size:15px;margin:0 0 8px}.empty-state p{font-size:11px;color:var(--muted);line-height:1.75;margin:0}.loading-state{display:none;text-align:center;padding:30px 20px;max-width:300px}.loading-state.show{display:block}.loading-state .spinner{height:42px;width:42px;border-radius:50%;border:3px solid #292d42;border-top-color:#a18aff;animation:spin .8s linear infinite;margin:0 auto 15px}@keyframes spin{to{transform:rotate(360deg)}}.progress-track{height:5px;background:#292d42;border-radius:20px;overflow:hidden;margin:16px 0 9px}.progressbar{height:100%;width:5%;background:linear-gradient(90deg,#a18aff,#61e1ea);border-radius:20px;transition:width .3s}.state-msg{font-size:11px;color:#bfc2d7}.result-meta{display:none;justify-content:space-between;align-items:center;gap:10px;padding-top:13px}.result-meta.show{display:flex}.result-status{font-size:11px;color:var(--good)}.result-link{color:#d4c9ff;font-size:11px;font-weight:800;text-decoration:none}.divider{height:1px;background:#ffffff10;margin:22px 0}.history-title{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:850;margin-bottom:11px}.history-list{display:grid;gap:9px}.history-item{border:1px solid #252a3b;background:#0d0f17;border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;min-width:0}.history-thumb{height:42px;width:34px;border-radius:7px;background:linear-gradient(150deg,#5b4a9a,#1b7c87);display:grid;place-items:center;flex:0 0 auto;font-size:14px}.history-text{min-width:0;flex:1}.history-text strong{display:block;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-text small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.history-open{border:1px solid #35394e;background:#171927;color:#d7d3ef;padding:7px 9px;border-radius:8px;font-size:10px;white-space:nowrap}.history-empty{text-align:center;color:#737890;font-size:11px;border:1px dashed #303449;border-radius:12px;padding:17px 12px}.bottomnote{color:#686e88;text-align:center;font-size:10px;line-height:1.8;margin:23px 0 0}.modal-backdrop{position:fixed;inset:0;background:#03040bd9;z-index:50;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.modal{max-width:480px;width:100%;background:#141622;border:1px solid #34384e;border-radius:20px;box-shadow:0 30px 100px #0008;overflow:hidden}.modalhead{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #ffffff12}.modalhead strong{font-size:14px}.modalbody{padding:20px}.modalbody p{font-size:11px;color:var(--muted);line-height:1.7}.modalactions{display:flex;gap:9px;justify-content:flex-end;margin-top:16px}.toast{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:.2s;background:#202336;border:1px solid #424762;color:#f1f0ff;border-radius:12px;padding:12px 16px;font-size:12px;box-shadow:0 10px 40px #0008;z-index:100;max-width:calc(100vw - 32px)}.toast.show{opacity:1;transform:translate(-50%,0)}.hide{display:none!important}.video-placeholder{font-size:10px;color:var(--muted);margin-top:10px;line-height:1.7}.badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #37334f;background:#a18aff12;border-radius:99px;padding:6px 9px;color:#c7b9ff;font-size:10px;font-weight:800}
+@media(max-width:820px){.shell{padding:0 14px 35px}.hero{padding-top:28px;display:block}.hero-chip{display:inline-block;margin-top:17px}.layout{grid-template-columns:1fr}.result-panel{grid-row:1}.creator-panel{grid-row:2}.panel-head{padding:17px 18px 14px}.panel-body,.result-area{padding:17px}.preview{min-height:260px;max-height:470px;aspect-ratio:9/13}.hero p{font-size:13px}}@media(max-width:440px){.brandmark{height:37px;width:37px;border-radius:12px}.brandname{font-size:13px}.brand-sub{font-size:10px}.status{padding:8px 9px;font-size:10px}.icon-btn{height:37px;width:38px}.fields2{grid-template-columns:1fr 1fr;gap:9px}.panel{border-radius:17px}.panel-head{padding:15px}.panel-body,.result-area{padding:15px}textarea{min-height:135px}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand"><div class="brandmark">▶</div><div><div class="brandname">AI VIDEO <span>LAB</span></div><div class="brand-sub">TEXT TO VIDEO STUDIO</div></div></div>
+    <div class="top-actions"><div class="status" id="apiStatus"><span class="dot"></span><span id="apiStatusText">接続確認中</span></div></div>
+  </header>
+  <section class="hero">
+    <div><div class="eyebrow">YOUR IDEA, MOVING</div><h1>言葉から、<em>映像を。</em></h1><p>シーンのイメージを書いて、画角と長さを選ぶだけ。縦型ショート向けのAI動画クリップを生成するスタジオ。</p></div>
+    <div class="hero-chip"><small>GENERATION MODE</small><strong>Text → Video · Free Mode</strong></div>
+  </section>
+  <main class="layout">
+    <section class="panel creator-panel">
+      <div class="panel-head"><div class="head-title"><span class="num">01</span>動画をデザイン</div><span class="mini">無料モード</span></div>
+      <div class="panel-body">
+        <div class="field">
+          <div class="labelrow"><label class="label" for="prompt">どんな映像を作る？</label><span class="hint">具体的な描写がおすすめ</span></div>
+          <textarea id="prompt" maxlength="760" placeholder="例：雨の夜の東京。制服姿の高校生が駅のホームで、古い手紙を読みながら静かに涙をこらえる。カメラは後ろからゆっくり近づき、ネオンが濡れた床に反射する。映画のような自然な演技と柔らかな照明。"></textarea>
+          <div class="char-count"><span id="promptCount">0</span> / 760</div>
+        </div>
+        <div class="field">
+          <div class="labelrow"><span class="label">映像スタイル</span><span class="hint">1つ選択</span></div>
+          <div class="chips" id="styleChips">
+            <button class="chip active" data-style="realistic">🎬 実写映画</button><button class="chip" data-style="anime">✦ アニメ</button><button class="chip" data-style="cgi">◇ 3D CG</button><button class="chip" data-style="documentary">◎ ドキュメンタリー</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="labelrow"><span class="label">出力設定</span><span class="hint">Gen-4.5</span></div>
+          <div class="fields2">
+            <div class="subfield"><label for="duration">クリップの長さ</label><select id="duration"><option value="5">5秒</option><option value="10">10秒</option></select></div>
+            <div class="subfield"><label for="ratio">画面の向き</label><select id="ratio"><option value="720:1280">縦 9:16（ショート）</option><option value="1280:720">横 16:9（映画）</option></select></div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="labelrow"><span class="label">演出タグ</span><span class="hint">複数選択可</span></div>
+          <div class="optiongrid">
+            <label class="option"><input type="checkbox" value="slow camera movement" checked> ゆっくりしたカメラ</label>
+            <label class="option"><input type="checkbox" value="cinematic lighting" checked> 映画風ライティング</label>
+            <label class="option"><input type="checkbox" value="natural realistic motion" checked> 自然な動き</label>
+            <label class="option"><input type="checkbox" value="shallow depth of field"> 背景ぼかし</label>
+          </div>
+        </div>
+        <button class="primary" id="generateBtn"><span>✦</span><span id="generateLabel">AI動画を生成する</span><span>↗</span></button>
+        <div class="split-actions"><button class="secondary" id="enhanceBtn">✧ 演出タグを反映</button><button class="secondary" id="copyPromptBtn">▢ プロンプトをコピー</button></div>
+        <div class="smallprint">生成はシーン1本ずつです。長いショートドラマにする場合は、シーンごとに生成した動画を編集ソフトでつなげてください。</div>
+      </div>
+    </section>
+    <section class="panel result-panel">
+      <div class="panel-head"><div class="head-title"><span class="num">02</span>生成プレビュー</div><span class="badge">LIVE OUTPUT</span></div>
+      <div class="result-area">
+        <div class="preview" id="preview">
+          <div class="empty-state" id="emptyState"><div class="preview-icon">▣</div><h3>映像がここに表示されます</h3><p>プロンプトを入力して生成を試せます。無料生成APIが未接続の間は動画生成は行いません。</p></div>
+          <div class="loading-state" id="loadingState"><div class="spinner"></div><h3 id="loadingTitle">生成リクエストを送信中</h3><p class="state-msg" id="loadingMessage">AIがシーンをレンダリングしています。</p><div class="progress-track"><div class="progressbar" id="progressBar"></div></div><p class="state-msg" id="elapsedText">処理状況を確認しています…</p></div>
+          <video class="hide" id="outputVideo" controls playsinline></video>
+        </div>
+        <div class="result-meta" id="resultMeta"><span class="result-status">● 生成完了</span><a class="result-link" id="openVideoLink" href="#" target="_blank" rel="noopener">動画を開く ↗</a></div>
+        <p class="video-placeholder" id="resultNote">動画が完成すると、この枠で再生できます。生成サービスが返すURLは期限付きの場合があるため、完成したら端末に保存してください。</p>
+        <div class="divider"></div>
+        <div class="history-title"><span>最近の生成履歴</span><button class="secondary" id="clearHistoryBtn">履歴を消去</button></div>
+        <div class="history-list" id="historyList"><div class="history-empty">まだ生成履歴はありません</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="bottomnote">AI VIDEO LAB · 無料モード<br>無料モード · 課金型動画生成APIへの通信は行いません。</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const STORAGE = {history:'aivideolab.history'};
+  let selectedStyle='realistic', currentVideoUrl='';
+  const styleInfo = {
+    realistic:{label:'実写映画',prompt:'Photorealistic live-action cinema, realistic skin and natural human movement, cinematic color grading.'},
+    anime:{label:'アニメ',prompt:'High-quality original Japanese anime, expressive character animation, detailed backgrounds, cinematic anime composition.'},
+    cgi:{label:'3D CG',prompt:'High-quality 3D CGI, detailed materials, cinematic lighting, polished physically based rendering, expressive animation.'},
+    documentary:{label:'ドキュメンタリー',prompt:'Observational documentary cinematography, authentic natural lighting, grounded realistic details, restrained camera movement.'}
+  };
+  function showToast(message){ const t=$('toast');t.textContent=message;t.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>t.classList.remove('show'),3200); }
+  function setStatus(kind,text){const el=$('apiStatus');el.className='status '+(kind||'');$('apiStatusText').textContent=text;}
+  function currentPrompt(){
+    const raw=$('prompt').value.trim();
+    if(!raw)return '';
+    const tags=[...document.querySelectorAll('.option input:checked')].map(x=>x.value);
+    const composed=[styleInfo[selectedStyle].prompt,raw,tags.length?'Camera and visual notes: '+tags.join(', ')+'.':''].filter(Boolean).join('\n');
+    return composed;
+  }
+  function renderHistory(){
+    let history=[];try{history=JSON.parse(localStorage.getItem(STORAGE.history)||'[]');}catch{}
+    const list=$('historyList');list.replaceChildren();
+    if(!history.length){const empty=document.createElement('div');empty.className='history-empty';empty.textContent='まだ生成履歴はありません';list.append(empty);return;}
+    history.slice(0,6).forEach((item)=>{
+      const row=document.createElement('div');row.className='history-item';
+      const thumb=document.createElement('div');thumb.className='history-thumb';thumb.textContent='▶';
+      const txt=document.createElement('div');txt.className='history-text';
+      const title=document.createElement('strong');title.textContent=item.title||'AI生成クリップ';
+      const sub=document.createElement('small');sub.textContent=`${item.duration}秒 · ${item.date}`;
+      const open=document.createElement('button');open.className='history-open';open.textContent='再表示';open.addEventListener('click',()=>showVideo(item.url,item.title));
+      txt.append(title,sub);row.append(thumb,txt,open);list.append(row);
+    });
+  }
+  function saveHistory(item){let history=[];try{history=JSON.parse(localStorage.getItem(STORAGE.history)||'[]');}catch{};history.unshift(item);localStorage.setItem(STORAGE.history,JSON.stringify(history.slice(0,12)));renderHistory();}
+  function showVideo(url,title){currentVideoUrl=url;$('outputVideo').src=url;$('outputVideo').classList.remove('hide');$('emptyState').classList.add('hide');$('loadingState').classList.remove('show');$('resultMeta').classList.add('show');$('openVideoLink').href=url;$('resultNote').textContent=title||'生成された動画です。端末に保存してください。';}
+  function setProgress(value,message){progress=Math.max(5,Math.min(95,value));$('progressBar').style.width=progress+'%';if(message)$('loadingMessage').textContent=message;}
+  function beginLoading(){
+    $('emptyState').classList.add('hide');$('outputVideo').classList.add('hide');$('resultMeta').classList.remove('show');$('loadingState').classList.add('show');$('loadingTitle').textContent='AI動画を生成しています';$('progressBar').style.width='8%';$('generateBtn').disabled=true;$('generateLabel').textContent='生成中…';generationStart=Date.now();progress=8;
+    clearInterval(elapsedTimer);elapsedTimer=setInterval(()=>{const s=Math.floor((Date.now()-generationStart)/1000);$('elapsedText').textContent=`経過時間 ${Math.floor(s/60)}分 ${s%60}秒 · 完成までしばらくかかる場合があります`;setProgress(Math.min(88,8+s*0.8),'AIモデルが映像を処理しています。画面を閉じずにお待ちください。');},1000);
+  }
+  function endLoading(){clearInterval(elapsedTimer);clearTimeout(pollTimer);$('generateBtn').disabled=false;$('generateLabel').textContent='AI動画を生成する';}
+  async function pollTask(taskId, title, duration){
+    const started=Date.now();
+    while(Date.now()-started<12*60*1000){
+      await new Promise(resolve=>setTimeout(resolve,4000));
+      let task;
+      try{task=await request('/api/task/'+encodeURIComponent(taskId),{method:'GET'});}catch(e){throw e;}
+      const status=String(task.status||'').toUpperCase();
+      if(status==='SUCCEEDED'){
+        const output=Array.isArray(task.output)?task.output[0]:task.output;
+        if(!output||typeof output!=='string')throw new Error('タスクは完了しましたが、動画URLが返されませんでした。');
+        return output;
+      }
+      if(status==='FAILED'||status==='CANCELED'||status==='CANCELLED') throw new Error(task.failure||task.failureCode||'動画生成に失敗しました。プロンプトを変更して再試行してください。');
+      const p=status==='PENDING'?18:Math.min(90,26+Math.floor((Date.now()-started)/10000)*4);
+      setProgress(p,status==='PENDING'?'生成待ちです。順番に処理しています。':`生成中です（${status||'PROCESSING'}）。`);
+    }
+    throw new Error('生成処理の確認がタイムアウトしました。履歴や生成サービス側の状態を確認してください。');
+  }
+  async function generate(){
+    if(!$('prompt').value.trim()){
+      showToast('先に映像の説明を入力してね。');
+      $('prompt').focus();
+      return;
+    }
+    $('emptyState').querySelector('h3').textContent='無料生成APIが未接続です';
+    $('emptyState').querySelector('p').textContent='お金がかからない設定を守るため、外部の課金型動画生成APIには接続していません。無料で使える動画生成サービスを用意・接続するまでは、このサイトから実際の動画生成はできません。';
+    $('emptyState').classList.remove('hide');
+    $('outputVideo').classList.add('hide');
+    $('loadingState').classList.remove('show');
+    $('resultMeta').classList.remove('show');
+    showToast('課金APIへの送信は停止中です。');
+  }
+  $('prompt').addEventListener('input',()=>{$('promptCount').textContent=$('prompt').value.length;});
+  document.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c===chip));selectedStyle=chip.dataset.style;}));
+  $('enhanceBtn').addEventListener('click',()=>{if(!$('prompt').value.trim()){showToast('先にシーンの説明を入力してください。');return;}const p=currentPrompt();if(p.length>1000){showToast('プロンプトが長くなりすぎます。文章を短くしてください。');return;}showToast('選んだスタイルと演出タグを生成時に反映します。');});
+  $('copyPromptBtn').addEventListener('click',async()=>{const p=currentPrompt();if(!p){showToast('コピーする説明を入力してください。');return;}try{await navigator.clipboard.writeText(p);showToast('生成用プロンプトをコピーしました。');}catch{const t=document.createElement('textarea');t.value=p;document.body.append(t);t.select();document.execCommand('copy');t.remove();showToast('生成用プロンプトをコピーしました。');}});
+  $('generateBtn').addEventListener('click',generate);
+  $('clearHistoryBtn').addEventListener('click',()=>{localStorage.removeItem(STORAGE.history);renderHistory();showToast('履歴を消去しました。');});
+  renderHistory();setStatus('err','無料生成API未接続');
+})();
+</script>
+</body>
+</html>
